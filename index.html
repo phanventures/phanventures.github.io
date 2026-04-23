@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phan Ventures — Building spaces where people belong.</title>
+  <meta name="description" content="Phan Ventures is the portfolio of Anh Phan — a queer Vietnamese-American entrepreneur building community-first businesses in Minnesota.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #5B21B6;
+      background-image: linear-gradient(
+        155deg,
+        #6D28D9  0%,
+        #1D4ED8  20%,
+        #0891B2  38%,
+        #059669  55%,
+        #D97706  74%,
+        #DC2626  100%
+      );
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    /* Dark overlay for legibility */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.38);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav, main, footer { position: relative; z-index: 1; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      height: 64px;
+      background: rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-logo {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.75);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: rgba(255, 255, 255, 1); }
+
+    /* ── CONTENT COLUMN ── */
+    .col {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 100px 0 40px;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 36px;
+    }
+
+    .hero h1 {
+      font-size: clamp(54px, 9vw, 96px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.96;
+      color: #fff;
+      margin-bottom: 40px;
+    }
+
+    .hero-pull {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.8;
+      border-left: 2px solid rgba(255, 255, 255, 0.22);
+      padding-left: 24px;
+      max-width: 540px;
+    }
+
+    /* ── RULE ── */
+    .rule {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      margin: 0;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    /* ── THE WHY ── */
+    .why-body {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .why-statement {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .why-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .pillar {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .pillar-mark {
+      font-size: 10px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.22);
+      letter-spacing: 0.06em;
+      min-width: 20px;
+      padding-top: 3px;
+    }
+
+    .pillar-text strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.88);
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .pillar-text span {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.70);
+      line-height: 1.65;
+    }
+
+    /* ── VENTURES ── */
+    .ventures-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .venture-item {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .venture-item:last-child {
+      border-bottom: none;
+    }
+
+    #ventures {
+      padding-bottom: 0;
+    }
+
+    .venture-trigger {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 0;
+      cursor: pointer;
+      user-select: none;
+      transition: opacity 0.2s;
+      width: 100%;
+      background: none;
+      border: none;
+      color: inherit;
+      font-family: inherit;
+      text-align: left;
+    }
+
+    .venture-trigger:hover { opacity: 0.85; }
+
+    .venture-num {
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.22);
+      letter-spacing: 0.04em;
+      min-width: 28px;
+    }
+
+    .venture-name {
+      font-size: clamp(20px, 3.5vw, 28px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #fff;
+      flex: 1;
+      line-height: 1.1;
+    }
+
+    .venture-arrow {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.28);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .venture-item.open .venture-arrow {
+      transform: rotate(45deg);
+    }
+
+    /* Expand panel */
+    .venture-expand {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .venture-item.open .venture-expand {
+      max-height: 300px;
+    }
+
+    .venture-body {
+      padding: 0 0 32px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .venture-type {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.36);
+    }
+
+    .venture-desc {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.75;
+      max-width: 480px;
+    }
+
+    .venture-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.5);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      padding-bottom: 2px;
+      width: fit-content;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .venture-link:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .venture-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.6);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .social-icon:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #fff;
+    }
+
+    .social-icon svg {
+      width: 17px;
+      height: 17px;
+      fill: currentColor;
+    }
+
+    /* ── ABOUT ── */
+    .about-body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .about-body p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.80);
+      line-height: 1.85;
+    }
+
+    .about-body em {
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .fact-row-inline {
+      display: flex;
+      gap: 28px;
+      flex-wrap: nowrap;
+      padding-top: 12px;
+    }
+
+    .fact-inline {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .fact-inline-num {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .fact-inline-label {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.42);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 36px 0;
+    }
+
+    .footer-col {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.24);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.32);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: rgba(255, 255, 255, 0.7); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 0 24px; }
+      .col { padding: 0 24px; }
+      .hero { padding: 72px 0 60px; }
+      .section { padding: 52px 0; }
+      .venture-body { padding-left: 0; }
+      .footer-col { padding: 0 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+      .nav-links a:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Phan Ventures</div>
+    <div class="nav-links">
+      <a href="#why">About</a>
+      <a href="#ventures">Ventures</a>
+      <a href="mailto:anh@phanventures.com">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="col">
+
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero-eyebrow">Queer &nbsp;·&nbsp; Vietnamese-American &nbsp;·&nbsp; Community Builder</div>
+        <h1>Building spaces where people belong.</h1>
+        <p class="hero-pull">I believe the greatest thing you can do for someone is make them feel like they belong — and that from that sense of belonging, people find the courage to pursue their dreams.</p>
+      </div>
+
+      <hr class="rule">
+
+      <!-- THE WHY -->
+      <div class="section" id="why">
+        <span class="section-label">The Why</span>
+        <div class="why-body">
+          <div class="why-statement">Connection isn't a nice-to-have. It's the foundation of everything.</div>
+          <div class="why-pillars">
+            <div class="pillar">
+              <div class="pillar-mark">—</div>
+              <div class="pillar-text">
+                <strong>Helping people go after their dreams</strong>
+                <span>This is what matters most. I want people to believe in what they're building and actually pursue it.</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-mark">—</div>
+              <div class="pillar-text">
+                <strong>Building connections that matter</strong>
+                <span>The kind that make people feel less alone, more alive, more themselves.</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-mark">—</div>
+              <div class="pillar-text">
+                <strong>Creating genuinely inclusive environments</strong>
+                <span>Not just open doors — spaces where people are actively welcomed into the fold.</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-mark">—</div>
+              <div class="pillar-text">
+                <strong>Modeling inclusion</strong>
+                <span>The communities I build should teach people how to welcome others, not just how to join.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="rule">
+
+      <!-- VENTURES -->
+      <div class="section" id="ventures">
+        <span class="section-label">The Ventures</span>
+        <div class="ventures-list">
+
+          <div class="venture-item" id="v1">
+            <button class="venture-trigger" onclick="toggleVenture('v1')" aria-expanded="false">
+              <span class="venture-num">01</span>
+              <span class="venture-name">Mr. Anh Phan</span>
+              <span class="venture-arrow">+</span>
+            </button>
+            <div class="venture-expand">
+              <div class="venture-body">
+                <div class="venture-type">Personal Brand &amp; Community</div>
+                <p class="venture-desc">Thought leadership, cohort programs, and the Phan Club — a membership community for entrepreneurs building businesses and lives on their own terms. This is where teaching, content, and connection all live together.</p>
+                <div class="venture-links">
+                  <a href="https://mranhphan.com" target="_blank" rel="noopener" class="venture-link">mranhphan.com ↗</a>
+                  <a href="https://instagram.com/mranhphan" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                  <a href="https://tiktok.com/@mranhphan" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.95a8.16 8.16 0 0 0 4.77 1.52V7.02a4.85 4.85 0 0 1-1-.33z"/></svg>
+                  </a>
+                  <a href="https://youtube.com/@mr_anhphan" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="venture-item" id="v2">
+            <button class="venture-trigger" onclick="toggleVenture('v2')" aria-expanded="false">
+              <span class="venture-num">02</span>
+              <span class="venture-name">Minnesota Dodgeball</span>
+              <span class="venture-arrow">+</span>
+            </button>
+            <div class="venture-expand">
+              <div class="venture-body">
+                <div class="venture-type">Sports &amp; Recreation</div>
+                <p class="venture-desc">Adult dodgeball leagues, tournaments, open gyms, and youth programs in the Twin Cities. Built from the ground up on the belief that adults still deserve to play — and that sport is one of the fastest ways to build real community. 200+ players and growing.</p>
+                <div class="venture-links">
+                  <a href="https://minnesotadodgeball.com" target="_blank" rel="noopener" class="venture-link">minnesotadodgeball.com ↗</a>
+                  <a href="https://instagram.com/minnesotadodgeball" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                  <a href="https://tiktok.com/@minnesotadodgeball" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.95a8.16 8.16 0 0 0 4.77 1.52V7.02a4.85 4.85 0 0 1-1-.33z"/></svg>
+                  </a>
+                  <a href="https://facebook.com/minnesotadodgeball" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  </a>
+                  <a href="https://youtube.com/@minnesotadodgeball" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="venture-item" id="v3">
+            <button class="venture-trigger" onclick="toggleVenture('v3')" aria-expanded="false">
+              <span class="venture-num">03</span>
+              <span class="venture-name">Always Funday</span>
+              <span class="venture-arrow">+</span>
+            </button>
+            <div class="venture-expand">
+              <div class="venture-body">
+                <div class="venture-type">Experiences &amp; Events</div>
+                <p class="venture-desc">Social adventures, events, and experiences for adults who believe adulthood should still be fun. The vision: a home for people who want to connect through play, exploration, and shared joy. Coming back soon.</p>
+                <div class="venture-links">
+                  <a href="https://alwaysfunday.com" target="_blank" rel="noopener" class="venture-link">alwaysfunday.com ↗</a>
+                  <a href="https://instagram.com/alwaysfunday" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                  <a href="https://facebook.com/alwaysfunday" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <hr class="rule">
+
+      <!-- ABOUT -->
+      <div class="section" id="about">
+        <span class="section-label">Who's Behind This</span>
+        <div class="about-body">
+          <p>I'm Anh — born in Saigon, raised in Massachusetts, now building in Minnesota. Growing up as the kid of Vietnamese immigrants, I learned early that belonging isn't something that just happens. It's something you build, intentionally, for the people who don't already have it.</p>
+          <p>I'm a queer entrepreneur running multiple businesses alongside a full-time day job. Everything I build starts with the same question: does this make people feel like they belong?</p>
+          <p>My dream is for people to say, <em>"That's where I found my people"</em> — and then go build their own.</p>
+          <div class="fact-row-inline">
+            <div class="fact-inline">
+              <div class="fact-inline-num">3</div>
+              <div class="fact-inline-label">Ventures operating</div>
+            </div>
+            <div class="fact-inline">
+              <div class="fact-inline-num">16+</div>
+              <div class="fact-inline-label">Years building community</div>
+            </div>
+            <div class="fact-inline">
+              <div class="fact-inline-num">300+</div>
+              <div class="fact-inline-label">Minnesota Dodgeball players</div>
+            </div>
+            <div class="fact-inline">
+              <div class="fact-inline-num">100%</div>
+              <div class="fact-inline-label">Queer-owned &amp; operated</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.col -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-col">
+      <div class="footer-logo">Phan Ventures</div>
+      <div class="footer-links">
+        <a href="https://mranhphan.com" target="_blank" rel="noopener">Mr. Anh Phan</a>
+        <a href="https://minnesotadodgeball.com" target="_blank" rel="noopener">Minnesota Dodgeball</a>
+        <a href="https://alwaysfunday.com" target="_blank" rel="noopener">Always Funday</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Phan Ventures LLC</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleVenture(id) {
+      const item = document.getElementById(id);
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.venture-item').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.venture-trigger').setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked (if it wasn't already open)
+      if (!isOpen) {
+        item.classList.add('open');
+        item.querySelector('.venture-trigger').setAttribute('aria-expanded', 'true');
+      }
+    }
+  </script>
+
+</body>
+</html>
